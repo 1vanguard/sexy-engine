@@ -2,23 +2,20 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1>Sexy-Engine</h1>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app_wrap">
+      <Header />
     </div>
   );
+}
+
+const Header = () =>{
+  return (
+    <header className="App-header">
+      <h1>Sexy-Engine</h1>
+    </header>
+  )
 }
 
 export default App;
