@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/sexy-engine/static/css/main.5f361e03.chunk.css",
+    "main.js": "/sexy-engine/static/js/main.56f9ceca.chunk.js",
+    "main.js.map": "/sexy-engine/static/js/main.56f9ceca.chunk.js.map",
+    "runtime-main.js": "/sexy-engine/static/js/runtime-main.8082b23c.js",
+    "runtime-main.js.map": "/sexy-engine/static/js/runtime-main.8082b23c.js.map",
+    "static/js/2.812b3a16.chunk.js": "/sexy-engine/static/js/2.812b3a16.chunk.js",
+    "static/js/2.812b3a16.chunk.js.map": "/sexy-engine/static/js/2.812b3a16.chunk.js.map",
+    "index.html": "/sexy-engine/index.html",
+    "precache-manifest.fd767065b24548178d1e89d704187ad1.js": "/sexy-engine/precache-manifest.fd767065b24548178d1e89d704187ad1.js",
+    "service-worker.js": "/sexy-engine/service-worker.js",
+    "static/css/main.5f361e03.chunk.css.map": "/sexy-engine/static/css/main.5f361e03.chunk.css.map",
+    "static/js/2.812b3a16.chunk.js.LICENSE.txt": "/sexy-engine/static/js/2.812b3a16.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/sexy-engine/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8082b23c.js",
+    "static/js/2.812b3a16.chunk.js",
+    "static/css/main.5f361e03.chunk.css",
+    "static/js/main.56f9ceca.chunk.js"
+  ]
+}
