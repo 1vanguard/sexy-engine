@@ -2,7 +2,7 @@ import React from 'react';
 
 const Header = () =>{
     return (
-      <header className="App-header">
+      <header className="app_header">
         <h1>Sexy-Engine</h1>
       </header>
     )
