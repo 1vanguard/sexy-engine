@@ -1,6 +1,6 @@
 import React from 'react'
 import BrandName from '../brand/brand_name'
-import NavbarItem from './navbar_item/navbar_item'
+import MainNavbar from './main_navbar/main_navbar'
 
 const Navbar = () => {
   return (
@@ -12,9 +12,7 @@ const Navbar = () => {
         <span className="navbar-toggler-icon"></span>
       </button>
       <div className="collapse navbar-collapse" id="collapsibleNavId">
-        <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
-          <NavbarItem />
-        </ul>
+        <MainNavbar />
       </div>
     </nav>
   )
