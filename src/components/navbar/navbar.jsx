@@ -2,7 +2,7 @@ import React from 'react'
 import BrandName from '../brand/brand_name'
 import MainNavbar from './main_navbar/main_navbar'
 
-const Navbar = () => {
+const Navbar = (props) => {
   return (
     <nav className="navbar navbar-expand-sm navbar-light bg-light">
       <a className="navbar-brand" href="/">
@@ -12,7 +12,7 @@ const Navbar = () => {
         <span className="navbar-toggler-icon"></span>
       </button>
       <div className="collapse navbar-collapse" id="collapsibleNavId">
-        <MainNavbar />
+        <MainNavbar mainMenu={props.mainMenu} />
       </div>
     </nav>
   )

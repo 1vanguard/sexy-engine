@@ -1,10 +1,10 @@
 import React from 'react'
 import Navbar from '../navbar/navbar'
 
-const Header = () => {
+const Header = (props) => {
   return (
     <header className="app_header container">
-      <Navbar />
+      <Navbar mainMenu={props.mainMenu} />
     </header>
   )
 }

@@ -9,12 +9,12 @@ import Header from './components/header/header'
 import Body from './components/body/body'
 import Footer from './components/footer/footer'
 
-const App = () => {
+const App = (props) => {
   return (
     <BrowserRouter>
       <div className="app_wrap">
-        <Header />
-        <Body />
+        <Header mainMenu={props.mainMenu} />
+        <Body technologies={props.technologies} />
         <Footer />
       </div>
     </BrowserRouter>
