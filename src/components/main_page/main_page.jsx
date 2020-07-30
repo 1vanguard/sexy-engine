@@ -1,8 +1,10 @@
 import React from 'react'
 
-const MainPage = () => {
+const MainPage = (props) => {
   return (
-    <p>Hello, buddy!</p>
+    <div className="main_page_content">
+      <h1 className="font-weight-bold text-center">{props.mainPage}</h1>
+    </div>
   )
 }
 

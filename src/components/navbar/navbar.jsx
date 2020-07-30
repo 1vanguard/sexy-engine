@@ -12,7 +12,7 @@ const Navbar = (props) => {
         <span className="navbar-toggler-icon"></span>
       </button>
       <div className="collapse navbar-collapse" id="collapsibleNavId">
-        <MainNavbar mainMenu={props.mainMenu} />
+        <MainNavbar state={props.state} />
       </div>
     </nav>
   )

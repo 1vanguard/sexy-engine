@@ -11,3 +11,6 @@ html,.app_wrap,#root{
   flex-direction: column;
   min-height: 100%;
 }
+.nav-link>[class*=fa]{
+  margin-right: .5rem;
+}

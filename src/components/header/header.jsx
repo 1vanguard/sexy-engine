@@ -3,8 +3,8 @@ import Navbar from '../navbar/navbar'
 
 const Header = (props) => {
   return (
-    <header className="app_header container">
-      <Navbar mainMenu={props.mainMenu} />
+    <header className="app_header">
+      <Navbar state={props.state} />
     </header>
   )
 }
