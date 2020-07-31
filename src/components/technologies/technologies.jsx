@@ -21,7 +21,6 @@ const Technologies = (props) => {
     /> )
   return (
     <div className="technologies">
-      <h2 className="text-center">{props.header}</h2>
       <ul className="text-center list-inline">
         {linksList}
       </ul>

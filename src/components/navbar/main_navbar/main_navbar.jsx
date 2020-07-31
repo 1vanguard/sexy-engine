@@ -2,7 +2,7 @@ import React from 'react'
 import MainNavbarItem from '../navbar_item/main_navbar_item'
 
 const MainNavbar = (props) => {
-  let menuItems = props.state.map (
+  let menuItems = props.state.slice(1).map (
     item => <MainNavbarItem
       href={"/" + item.alias}
       text={item.menu_text}
@@ -11,7 +11,6 @@ const MainNavbar = (props) => {
       icon_type={item.icon_type}
       icon={item.icon}
     /> );
-  // menuItems.map.delete(0);
   return (
     <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
       {menuItems}

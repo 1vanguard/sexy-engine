@@ -3,7 +3,7 @@ import React from 'react'
 const MainPage = (props) => {
   return (
     <div className="main_page_content">
-      <h1 className="font-weight-bold text-center">{props.mainPage}</h1>
+      <p className="font-weight-bold lead text-center">{props.mainPage}</p>
     </div>
   )
 }
