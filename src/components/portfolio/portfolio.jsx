@@ -3,9 +3,10 @@ import PortfolioCard from './portfolio_card/portfolio_card'
 
 const Portfolio = (props) => {
   let portfolioList = props.portfolio.map(
-    item => <div className="col-md-4"><PortfolioCard
+    item => <div className="col-md-4" key={item.id}><PortfolioCard
+      id={item.id}
       title={item.title}
-      desc={item.link}
+      desc={item.desc}
       link={item.link}
       imageSrc={item.imageSrc}
     /></div> )

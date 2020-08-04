@@ -11,25 +11,32 @@ const Body = (props) => {
   return (
     <div className="app_body container py-5">
       <Switch>
-        <Route exact path={`/${props.state[0].alias}`}>
-          <PageHeader header={props.state[0].header} />
-          <MainPage mainPage={props.state[0].data} />
+        <Route exact path={`/${props.state.pages[0].alias}`}>
+          <PageHeader header={props.state.pages[0].header} />
+          <MainPage mainPage={props.state.pages[0].data} />
         </Route>
-        <Route path={`/${props.state[1].alias}`}>
-          <PageHeader header={props.state[1].header} />
-          <Portfolio portfolio={props.state[1].data} />
+        <Route path={`/${props.state.pages[1].alias}`}>
+          <PageHeader header={props.state.pages[1].header} />
+          <Portfolio portfolio={props.state.pages[1].data} />
         </Route>
-        <Route path={`/${props.state[2].alias}`}>
-          <PageHeader header={props.state[2].header} />
-          <Technologies technologies={props.state[2].data} />
+        <Route path={`/${props.state.pages[2].alias}`}>
+          <PageHeader header={props.state.pages[2].header} />
+          <Technologies technologies={props.state.pages[2].data} />
         </Route>
-        <Route path={`/${props.state[3].alias}`}>
-          <PageHeader header={props.state[3].header} />
-          <About about={props.state[3].data} />
+        <Route path={`/${props.state.pages[3].alias}`}>
+          <PageHeader header={props.state.pages[3].header} />
+          <About about={props.state.pages[3].data} />
         </Route>
-        <Route path={`/${props.state[4].alias}`}>
-          <PageHeader header={props.state[4].header} />
-          <Contacts сontacts={props.state[4].data} addMessage={props.addMessage} />
+        <Route path={`/${props.state.pages[4].alias}`}>
+          <PageHeader header={props.state.pages[4].header} />
+          <Contacts
+            messages={props.state.messages}
+            langConsts={props.state.languageConstants}
+            authorNameText={props.state.authorNameText}
+            newMessageText={props.state.newMessageText}
+            addMessage={props.addMessage}
+            updateMessageText={props.updateMessageText}
+            />
         </Route>
       </Switch>
     </div>

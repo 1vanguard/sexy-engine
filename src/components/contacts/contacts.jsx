@@ -5,9 +5,13 @@ const Contacts = (props) => {
   let messageAuthor = React.createRef()
   let messageBody = React.createRef()
   let sendMessage = () => {
+    props.addMessage()
+  }
+  let changeMessage = () => {
     let author = messageAuthor.current.value
     let text = messageBody.current.value
-    props.addMessage(author, text)
+    console.log(author, text)
+    props.updateMessageText(author, text)
   }
   return (
     <div className="contacts">
@@ -15,19 +19,32 @@ const Contacts = (props) => {
       <form className="justify-content-center mb-5 no-gutters row">
         <div className="col-lg-8 col-xl-6">
           <div className="form-group">
-            <label htmlFor="username">Ваше имя</label>
-            <input type="text" className="form-control" id="username" ref={messageAuthor} />
+            <label htmlFor="username">{props.langConsts[0].yourNameText}</label>
+            <input
+              type="text"
+              className="form-control"
+              id="username"
+              ref={messageAuthor}
+              onChange={changeMessage}
+              value={props.authorNameText}
+            />
           </div>
           <div className="form-group">
             <label htmlFor="usertext">Сообщение</label>
-            <textarea className="form-control" id="usertext" ref={messageBody} rows="3"></textarea>
+            <textarea
+              className="form-control"
+              id="usertext"
+              rows="3"
+              ref={messageBody}
+              onChange={changeMessage}
+              value={props.newMessageText} />
           </div>
-          <button type="submit" className="btn btn-primary" onClick={sendMessage}>Отправить</button>
+          <button type="button" className="btn btn-primary" onClick={sendMessage}>Отправить</button>
         </div>
       </form>
-      <MessagesList addMessage={props} />
+      <MessagesList messages={props.messages} />
     </div>
   )
 }
 
-export default Contacts;
+export default Contacts

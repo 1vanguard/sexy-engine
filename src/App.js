@@ -12,10 +12,14 @@ const App = (props) => {
   return (
     <div className="app_wrap">
       <Header state={props.state.pages} />
-      <Body state={props.state.pages} addMessage={props.addMessage} />
+      <Body
+        state={props.state}
+        addMessage={props.addMessage}
+        updateMessageText={props.updateMessageText}
+        />
       <Footer />
     </div>
   );
 }
 
-export default App;
+export default App

@@ -1,25 +1,31 @@
-import {rerender} from "../render"
+let rerender = () => {
+    console.log("State updated")
+}
 
 let portfolio = [
     {
+        id: 1,
         title: "Hotel Russ",
         desc: "РУСЬ – комфортабельная и недорогая гостиница в Петербурге!",
         link: "https://hotelruss.spb.ru",
         imageSrc: "https://hotelruss.spb.ru/images/logo.png"
     },
     {
+        id: 2,
         title: "Accanto",
         desc: "Accanto Invest Group - Мы строим будущее",
         link: "https://accantoinvestgroup.com/",
         imageSrc: "https://accantoinvestgroup.com/images/logo.png"
     },
     {
+        id: 3,
         title: "Фарту-Масти",
         desc: "Фарту-Масти - бесплатные прогнозы для братвы",
         link: "https://fartumasti.ru",
         imageSrc: "https://fartumasti.ru/images/fartumasti_cover_md.png"
     }
 ]
+
 let technologies = [
     {
         id: 1,
@@ -28,7 +34,7 @@ let technologies = [
         img_src: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/80px-HTML5_logo_and_wordmark.svg.png",
         icon_type: "fab",
         icon: "html5",
-        level: 9
+        level: 8
     },
     {
         id: 2,
@@ -37,7 +43,7 @@ let technologies = [
         img_src: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/57px-CSS3_logo_and_wordmark.svg.png",
         icon_type: "fab",
         icon: "css3-alt",
-        level: 9
+        level: 8
     },
     {
         id: 3,
@@ -46,7 +52,7 @@ let technologies = [
         img_src: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/80px-Unofficial_JavaScript_logo_2.svg.png",
         icon_type: "fab",
         icon: "js",
-        level: 5
+        level: 4
     },
     {
         id: 4,
@@ -64,7 +70,7 @@ let technologies = [
         img_src: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Joomla%21-Logo.svg/220px-Joomla%21-Logo.svg.png",
         icon_type: "fab",
         icon: "joomla",
-        level: 8
+        level: 7
     },
     {
         id: 6,
@@ -98,23 +104,39 @@ let state = {
     pages: [
         {id: 1, alias: "", menu_text: "Главная", sr_text: "Home page", icon_type: "fas", icon: "home", header: "Sexy-Engine", data: "Сайт создан при помощи технологий React, JavaScript, HTML, CSS и многих других"},
         {id: 2, alias: "portfolio", menu_text: "Портфолио", sr_text: "Portfolio", icon_type: "fas", icon: "briefcase", header: "\"Это Мами сама своими чёрными ручками сделала..\"", data: portfolio},
-        {id: 3, alias: "technologies", menu_text: "Технологии", sr_text: "Technologies", sr_text: "Technologies", icon_type: "fas", icon: "cogs", header: "Могу, умею, практикую", data: technologies},
+        {id: 3, alias: "technologies", menu_text: "Технологии", sr_text: "Technologies", icon_type: "fas", icon: "cogs", header: "Могу, умею, практикую", data: technologies},
         {id: 4, alias: "about", menu_text: "Обо мне", sr_text: "About", icon_type: "fas", icon: "address-card", header: "Немного о себе любимом", data: "Молодой крАкодил завёл себе прекрасную, любящую жену."},
         {id: 5, alias: "contacts", menu_text: "Контакты", sr_text: "Contacts", icon_type: "fas", icon: "user-edit", header: "Всегда у аппарата", data: "Перечень контактов и форма обратной связи"}
     ],
     messages: [
-        {id:1, author: "", text: ""}
+        {id:1, author: "The author", text: "Text text text"}
+    ],
+    newMessageText: "Введите сообщение",
+    authorNameText: "Введите Ваше имя",
+    languageConstants: [
+        {yourNameText: "Ваше имя"}
     ]
 }
 
-export let addMessage = (messageAuthor, messageBody) => {
+export const addMessage = () => {
     let newMessage = {
-        id: "someNumber",
-        author: messageAuthor,
-        text: messageBody
+        id: 2,
+        author: state.authorNameText,
+        text: state.newMessageText
     }
     state.messages.push(newMessage)
+    state.authorNameText = ''
+    state.newMessageText = ''
     rerender(state)
+}
+export const updateMessageText = (author, text) => {
+    state.authorNameText = author
+    state.newMessageText = text
+    rerender(state)
+}
+
+export const subscriber = (observer) => {
+    rerender = observer
 }
 
 export default state;
