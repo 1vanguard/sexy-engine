@@ -12,11 +12,7 @@ const App = (props) => {
   return (
     <div className="app_wrap">
       <Header state={props.state.pages} />
-      <Body
-        state={props.state}
-        addMessage={props.addMessage}
-        updateMessageText={props.updateMessageText}
-        />
+      <Body state={props.state} dispatch={props.dispatch} />
       <Footer />
     </div>
   );

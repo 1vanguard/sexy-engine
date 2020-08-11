@@ -17,11 +17,11 @@ const Body = (props) => {
         </Route>
         <Route path={`/${props.state.pages[1].alias}`}>
           <PageHeader header={props.state.pages[1].header} />
-          <Portfolio portfolio={props.state.pages[1].data} />
+          <Portfolio portfolio={props.state.pages[1].portfolio} />
         </Route>
         <Route path={`/${props.state.pages[2].alias}`}>
           <PageHeader header={props.state.pages[2].header} />
-          <Technologies technologies={props.state.pages[2].data} />
+          <Technologies technologies={props.state.pages[2].technologies} />
         </Route>
         <Route path={`/${props.state.pages[3].alias}`}>
           <PageHeader header={props.state.pages[3].header} />
@@ -34,9 +34,11 @@ const Body = (props) => {
             langConsts={props.state.languageConstants}
             authorNameText={props.state.authorNameText}
             newMessageText={props.state.newMessageText}
-            addMessage={props.addMessage}
-            updateMessageText={props.updateMessageText}
+            dispatch={props.dispatch}
             />
+            {/* 
+            addMessage={props.addMessage}
+            updateMessageText={props.updateMessageText} */}
         </Route>
       </Switch>
     </div>

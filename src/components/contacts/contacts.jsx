@@ -1,17 +1,18 @@
 import React from 'react'
+import {addMessageActionCreator, updateMessageActionCreator} from '../../redux/state'
 import MessagesList from '../messages/message_list'
 
 const Contacts = (props) => {
   let messageAuthor = React.createRef()
   let messageBody = React.createRef()
   let sendMessage = () => {
-    props.addMessage()
+    props.dispatch(addMessageActionCreator())
   }
   let changeMessage = () => {
     let author = messageAuthor.current.value
     let text = messageBody.current.value
-    console.log(author, text)
-    props.updateMessageText(author, text)
+    /* console.log(author, text) */
+    props.dispatch(updateMessageActionCreator(author, text))
   }
   return (
     <div className="contacts">
@@ -30,7 +31,7 @@ const Contacts = (props) => {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="usertext">Сообщение</label>
+            <label htmlFor="usertext">{props.langConsts[1].yourMessageText}</label>
             <textarea
               className="form-control"
               id="usertext"
