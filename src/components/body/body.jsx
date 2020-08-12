@@ -30,10 +30,10 @@ const Body = (props) => {
         <Route path={`/${props.state.pages[4].alias}`}>
           <PageHeader header={props.state.pages[4].header} />
           <Contacts
-            messages={props.state.messages}
+            messages={props.state.messagesData.messages}
             langConsts={props.state.languageConstants}
-            authorNameText={props.state.authorNameText}
-            newMessageText={props.state.newMessageText}
+            authorNameText={props.state.messagesData.authorNameText}
+            newMessageText={props.state.messagesData.newMessageText}
             dispatch={props.dispatch}
             />
             {/* 

@@ -1,5 +1,4 @@
-const ADD_MESSAGE = 'ADD-MESSAGE'
-const UPDATE_MESSAGE_TEXT = 'UPDATE-MESSAGE-TEXT'
+import messageReducer from "./messageReducer"
 
 let store = {
     _state: {
@@ -149,11 +148,13 @@ let store = {
                 data: "Перечень контактов и форма обратной связи"
             }
         ],
-        messages: [
-            {id:1, author: "The author", text: "Text text text"}
-        ],
-        newMessageText: "Введите сообщение",
-        authorNameText: "Введите Ваше имя",
+        messagesData: {
+            messages: [
+                {id:1, author: "The author", text: "Text text text"}
+            ],
+            newMessageText: "Введите сообщение",
+            authorNameText: "Введите Ваше имя"
+        },
         languageConstants: [
             {yourNameText: "Ваше имя"},
             {yourMessageText: "Ваше сообщение"}
@@ -170,27 +171,12 @@ let store = {
         this._callSubscriber = observer
     },
 
-    dispatch(action) {
-        if(action.type === "ADD-MESSAGE"){
-            let newMessage = {
-                id: 2,
-                author: this._state.authorNameText,
-                text: this._state.newMessageText
-            }
-            this._state.messages.push(newMessage)
-            this._state.authorNameText = ''
-            this._state.newMessageText = ''
-            this._callSubscriber(this._state)
-        } else if (action.type === "UPDATE-MESSAGE-TEXT") {
-            this._state.authorNameText = action.author
-            this._state.newMessageText = action.text
-            this._callSubscriber(this._state)
-        }
+    dispatch(action){
+        this._state.messagesData = messageReducer(this._state.messagesData, action)
+
+        this._callSubscriber(this._state)
     }
 }
-
-export const addMessageActionCreator = () => ({type: ADD_MESSAGE})
-export const updateMessageActionCreator = (author, text) => ({type: UPDATE_MESSAGE_TEXT, author: author, text: text})
 
 export default store
 

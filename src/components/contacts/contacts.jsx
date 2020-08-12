@@ -1,5 +1,5 @@
 import React from 'react'
-import {addMessageActionCreator, updateMessageActionCreator} from '../../redux/state'
+import {addMessageActionCreator, updateMessageActionCreator} from '../../redux/messageReducer'
 import MessagesList from '../messages/message_list'
 
 const Contacts = (props) => {
