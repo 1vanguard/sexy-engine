@@ -1,18 +1,20 @@
 import React from 'react'
-import {addMessageActionCreator, updateMessageActionCreator} from '../../redux/messageReducer'
+import {addMessageActionCreator, updateAuthorActionCreator, updateMessageActionCreator} from '../../redux/messageReducer'
 import MessagesList from '../messages/message_list'
 
 const Contacts = (props) => {
-  let messageAuthor = React.createRef()
-  let messageBody = React.createRef()
   let sendMessage = () => {
     props.dispatch(addMessageActionCreator())
   }
-  let changeMessage = () => {
-    let author = messageAuthor.current.value
-    let text = messageBody.current.value
-    /* console.log(author, text) */
-    props.dispatch(updateMessageActionCreator(author, text))
+  let changeAuthor = (e) => {
+    let target = e.target;
+    let author = target.name === 'username' && target.value
+    props.dispatch(updateAuthorActionCreator(author))
+  }
+  let changeMessage = (e) => {
+    let target = e.target;
+    let text = target.name === 'usertext' && target.value
+    props.dispatch(updateMessageActionCreator(text))
   }
   return (
     <div className="contacts">
@@ -25,8 +27,8 @@ const Contacts = (props) => {
               type="text"
               className="form-control"
               id="username"
-              ref={messageAuthor}
-              onChange={changeMessage}
+              name="username"
+              onChange={changeAuthor}
               value={props.authorNameText}
             />
           </div>
@@ -36,7 +38,7 @@ const Contacts = (props) => {
               className="form-control"
               id="usertext"
               rows="3"
-              ref={messageBody}
+              name="usertext"
               onChange={changeMessage}
               value={props.newMessageText} />
           </div>

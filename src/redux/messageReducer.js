@@ -1,5 +1,6 @@
 const ADD_MESSAGE = 'ADD-MESSAGE'
 const UPDATE_MESSAGE_TEXT = 'UPDATE-MESSAGE-TEXT'
+const UPDATE_MESSAGE_AUTHOR = 'UPDATE-MESSAGE-AUTHOR'
 
 const messageReducer = (state, action) => {
     switch(action.type){
@@ -14,8 +15,10 @@ const messageReducer = (state, action) => {
             state.newMessageText = ''
             return state
         case UPDATE_MESSAGE_TEXT:
-            state.authorNameText = action.author
             state.newMessageText = action.text
+            return state
+        case UPDATE_MESSAGE_AUTHOR:
+            state.authorNameText = action.author
             return state
         default:
             return state
@@ -23,6 +26,7 @@ const messageReducer = (state, action) => {
 }
 
 export const addMessageActionCreator = () => ({type: ADD_MESSAGE})
-export const updateMessageActionCreator = (author, text) => ({type: UPDATE_MESSAGE_TEXT, author: author, text: text})
+export const updateMessageActionCreator = (text) => ({type: UPDATE_MESSAGE_TEXT, text: text})
+export const updateAuthorActionCreator = (author) => ({type: UPDATE_MESSAGE_AUTHOR, author})
 
 export default messageReducer
