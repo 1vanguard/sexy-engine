@@ -7,13 +7,11 @@ const Contacts = (props) => {
     props.dispatch(addMessageActionCreator())
   }
   let changeAuthor = (e) => {
-    let target = e.target;
-    let author = target.name === 'username' && target.value
+    let author = e.target.value
     props.dispatch(updateAuthorActionCreator(author))
   }
   let changeMessage = (e) => {
-    let target = e.target;
-    let text = target.name === 'usertext' && target.value
+    let text = e.target.value
     props.dispatch(updateMessageActionCreator(text))
   }
   return (

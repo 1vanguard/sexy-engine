@@ -2,7 +2,15 @@ const ADD_MESSAGE = 'ADD-MESSAGE'
 const UPDATE_MESSAGE_TEXT = 'UPDATE-MESSAGE-TEXT'
 const UPDATE_MESSAGE_AUTHOR = 'UPDATE-MESSAGE-AUTHOR'
 
-const messageReducer = (state, action) => {
+let inintailState = {
+    messages: [
+        {id:1, author: "The author", text: "Text text text"}
+    ],
+    newMessageText: "Введите сообщение",
+    authorNameText: "Введите Ваше имя"
+}
+
+const messageReducer = (state = inintailState, action) => {
     switch(action.type){
         case ADD_MESSAGE:            
             let newMessage = {

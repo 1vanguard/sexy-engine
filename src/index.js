@@ -1,8 +1,8 @@
 import * as serviceWorker from './serviceWorker'
-import store from './redux/state'
+import store from './redux/redux-store'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {BrowserRouter} from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 import './fontawesome';
 import App from './App'
 
@@ -19,6 +19,9 @@ let rerender = (state) => {
 
 rerender(store.getState())
 
-store.subscribe(rerender)
+store.subscribe( () => {
+    let state = store.getState()
+    rerender(state)
+} )
 
 serviceWorker.unregister();
